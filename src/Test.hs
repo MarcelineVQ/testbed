@@ -2,6 +2,7 @@
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE TypeOperators #-}
 {-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE FlexibleContexts #-}
 
 {-Haskell implementation of a simple ceasarcipher-}
 module Test where
@@ -17,6 +18,7 @@ import Data.Monoid hiding ((<>))
 import Data.Semigroup
 import qualified Test.QuickCheck as Q
 import Control.Applicative
+import Data.Foldable
 
 import Prelude
 import qualified Prelude as LT
@@ -55,6 +57,14 @@ rebot n f = iterate (f .) id !! n
 
 iterfix :: (Num b, Eq b) => b -> (a -> a) -> (a -> a)
 iterfix = fix (\rec' n f -> if n == 0 then id else f . rec' (n-1) f)
+
+bleeh :: Int -> (a -> a) -> a -> a
+bleeh n f = appEndo . foldMap Endo $ replicate n f
+
+bleeh' :: (Monoid a) => Int -> (a -> a) -> a -> a
+bleeh' n f = fold $ replicate n f
+
+-- bleueh = repliblah 5 head
 
 --
 repliFix :: (Num b, Eq b) => b -> (a -> a) -> (a -> a)

@@ -33,6 +33,21 @@ data AlgebraEnum = One | Two | Three | Four | Five deriving Data
 --lengthAE x = length . dataTypeConstrs . dataTypeOf $ (undefined :: a)
 
 
+beffh = foldr f [] [1,3,12,13,4,3,3,22,4,22,9,22,10]
+  where
+    f x [] = [x]
+    f x acc@(a:_) = case compare x a of
+      GT -> [x]
+      EQ -> x : acc
+      LT -> acc
+
+beffh' = uncurry replicate $ foldr1 f $ zip [1,1..] [1,3,12,13,4,3,3,22,4,22,9,22,10]
+  where
+    f (n',x) (n,a) = case compare x a of
+      GT -> (n',x)
+      EQ -> (n+1,a)
+      LT -> (n,a)
+
 data Tree a = Empty | Leaf a | Node (Tree a) a (Tree a) deriving (Show, Eq)
 
 instance Foldable Tree where
