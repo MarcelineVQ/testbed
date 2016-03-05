@@ -13,4 +13,4 @@ extra-deps:
 - grid-7.8.4
 - cereal-0.4.1.1
 
-resolver: lts-5.2
+resolver: lts-5.3

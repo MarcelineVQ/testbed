@@ -1,6 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable #-}
 -- {-# LANGUAGE RankNTypes #-}
 -- {-# OPTIONS_GHC -fdefer-typed-holes #-}
+{-# OPTIONS_GHC -Wall #-}
+
+{-# LANGUAGE ScopedTypeVariables #-}
 
 module Bleh where
 
@@ -8,12 +11,15 @@ import qualified Data.ByteString.Lazy.Char8 as BL
 import Data.Int
 import Data.List
 
+import Data.Char
 import Data.Tuple.Extra
 import Data.Function
 import Data.Bifunctor
 import Graphics.Gloss
 import Data.Data
 import Codec.Picture
+import Data.Maybe
+import Data.Bool
 
 import Control.Concurrent
 
@@ -31,6 +37,165 @@ data AlgebraEnum = One | Two | Three | Four | Five deriving Data
 
 -- lengthAE :: forall a . a -> Int
 --lengthAE x = length . dataTypeConstrs . dataTypeOf $ (undefined :: a)
+
+data Test = Test Int deriving (Show)
+
+instance Num Test where
+    (+) x y = x + y
+
+data Muffin
+
+zerp :: (a -> Bool) -> [a] -> [b] -> [(a,b)]
+zerp _ _ [] = []
+zerp _ [] _ = []
+zerp p' xs' (y':ys') = zarp p' xs' ys' y'
+  where
+    zarp _ _ [] _ = []
+    zarp _ [] _ _ = []
+    zarp p (x:xs) (y:ys) b
+      | p x = (x,y) : (zarp p xs ys y)
+      | otherwise = (x,b) : zarp p xs (y:ys) b
+
+stars :: String -> String
+stars = unwords . map
+  (\(x:xs) -> bool (x : map (\y -> if isAlpha y then '*' else y) (init xs) ++ [last xs]) (x:xs) (null xs))
+  . words
+
+
+-- Create a data structure that captures the phone layout
+-- above. The data structure should be able to express
+-- enough of how the layout works that you can use it to
+-- dictate the behavior of the functions in the following
+-- exercises
+
+data DaPhone = DaPhone  [(String,String)] deriving Show
+
+buttons = DaPhone  [ ("1", "1")
+                   , ("2", "abc2")
+                   , ("3", "def3")
+                   , ("4", "ghi4")
+                   , ("5", "jkl5")
+                   , ("6", "mno6")
+                   , ("7", "pqrs7")
+                   , ("8", "tuv8")
+                   , ("9", "wxyz9")
+                   , ("0", " 0")
+                   , ("#", ",.")
+                   ]
+
+convo :: [String]
+convo =
+  ["Wanna play 20 questions",
+  "Ya",
+  "U 1st haha",
+  "Lol ok. Have u ever tasted alcohol lol",
+  "Lol ya",
+  "Wow ur cool haha. Ur turn",
+  "Ok. Do u think I am pretty Lol",
+  "Lol ya",
+  "Haha thanks just making sure rofl ur turn"]
+
+-- Convert the following conversations into the keypresses
+-- required to express them. We’re going to suggest types
+-- and functions to fill in order to accomplish the goal,
+-- but they’re not obligatory. If you want to do it differently…you do you
+
+reverseTaps :: Char -> DaPhone -> [(String, Integer)]
+reverseTaps ch (DaPhone ((x,y):zs)) = case elemIndex ch y of
+                                       Just pos -> [(x, fromIntegral pos + 1)]
+                                       Nothing  -> reverseTaps ch (DaPhone zs)
+
+reverseTaps' :: DaPhone -> Char -> [(String, Integer)]
+reverseTaps' (DaPhone ((x,y):zs)) ch = case elemIndex ch y of
+                                       Just pos -> [(x, fromIntegral pos + 1)]
+                                       Nothing  -> reverseTaps ch (DaPhone zs)
+
+convertSentence :: String -> DaPhone -> [(String, Integer)]
+convertSentence []  list = []
+convertSentence (x:xs) list  = if isDigit x || isLower x  || x == ' '|| x == ',' || x == '.' then reverseTaps x list ++ convertSentence xs list else ("*", 1)  : reverseTaps (toLower x) list ++ convertSentence xs list
+
+
+convertSentence' :: DaPhone -> String -> [(String, Integer)]
+convertSentence' d = concatMap (\x ->
+  if isUpper x then ("*", 1)  : reverseTaps (toLower x) d else reverseTaps x d)
+
+-- this is pushing it a bit
+convertSentence'' :: DaPhone -> String -> [(String, Integer)]
+convertSentence'' d = concatMap $ bool id (("*", 1) :) . isUpper <*> reverseTaps' d
+
+-- this is pushing it way too much
+-- the list monad concats for us you see, clever , but opaque as fuck
+convertSen :: DaPhone -> String -> [(String, Integer)]
+convertSen = (=<<) . ((bool id (("*", 1) :) . isUpper) <*>) . reverseTaps'
+
+
+convertCo :: [String] -> DaPhone -> [(String, Integer)]
+convertCo [] list = []
+convertCo (x:xs) list = convertSentence x list ++ convertCo xs list
+
+-- unscanl (-) [100,99,98,97,96] == [1,1,1,1,1]
+
+-- unscanl :: (a -> b -> b) -> [a] -> [b]
+-- unscanl f = unfoldr f
+
+squish :: [[a]] -> [a]
+squish [] = []
+squish (x:xs) = x ++ (squish xs)
+
+squishMap :: (a -> [b]) -> [a] -> [b]
+squishMap f xs = squish . map f $ xs
+
+-- splitAt' [2,3,4] ("helloworld" :: [Char]) == ["he", "llo", "worl", "d"]
+splitAt' :: [Int] -> [Char] -> [[Char]]
+splitAt' _ [] = []
+splitAt' [] xs = [xs]
+splitAt' (x:xs) ys = take x ys : splitAt' xs (drop x ys)
+
+-- import Data.List
+
+histogram :: [Integer] -> String
+histogram a = draw $ map (`take` (repeat '*')) (map length $ group $ sort a)
+  where
+    draw ls = show ls
+
+
+capitalizeWord :: String -> (String, String)
+capitalizeWord [] = ([],[])
+capitalizeWord w@(x:xs) = (w, toUpper x : map toLower xs)
+--
+-- capitalizeWord :: String -> (String, String)
+-- capitalizeWord w
+--    | null w = (o,w)
+--    | otherwise = (o, toUpper x : map toLower xs)
+--    where o@(x:xs) = w
+
+capitalizeWords :: String -> [(String, String)]
+capitalizeWords w = map capitalizeWord (words w)
+
+
+--
+-- break                   :: (a -> Bool) -> [a] -> ([a],[a])
+-- break _ xs@[]           =  (xs, xs)
+-- break p xs@(x:xs')
+--            | p x        =  ([],xs)
+--            | otherwise  =  let (ys,zs) = break p xs' in (x:ys,zs)
+
+feh :: (a -> Bool) -> Int -> [a] -> [(a,Int)]
+feh _ _ [] = []
+feh f n (x:xs) = if f x then (x,n+1) : feh f (n+1) xs
+                 else (x,n) : feh f n xs
+
+
+zipStep :: forall a b . (a -> Bool) -> [a] -> [b] -> [(a,b)]
+zipStep f xs as@(y:ys) = zipWith (go y) xs as
+  where
+    go :: b -> a -> b -> (a, b)
+    -- go _ x y = (x, y)
+    go _ x y = if f x then (x, y) else (x, y) -- WTF!
+
+
+roundTrip :: (Show a, Read b) => a -> b
+roundTrip = read . show
 
 
 beffh = foldr f [] [1,3,12,13,4,3,3,22,4,22,9,22,10]
