@@ -1,0 +1,513 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_NAME	hasktags
+(	./src/Feg.hs	/^(<) x y = undefined$/;"	fi	line:14
+(	./src/Utility.hs	/^(f <.> g) x = f <$> g x  -- Applicative version of (f . g) x = f $ g x$/;"	fi	line:23
++|+	./src/Finger.hs	/^(+|+) :: Digit a -> Digit a -> Digit a$/;"	ft	line:28
+--anagrams	./src/numtowords.hs	/^--anagrams :: Int -> [Word] -> String$/;"	ft	line:47
+--dffsd	./src/Bleh.hs	/^--dffsd tl = foldr1 (\\(x,y) (x',y') -> ) tl :: (Int, Int)$/;"	fi	line:372
+--doubleEveryOther'''''	./src/DEO.hs	/^--doubleEveryOther''''' x = map $ zipWith (*2) (cycle [1,2]) = foldl (\\xs (x,y) -> if even y then x*2:xs else x:xs) [] $ zip (reverse [1..5]) [1..]$/;"	fi	line:14
+--f	./src/Test.hs	/^--f <$> a = f <*> pure a$/;"	fi	line:392
+--feh	./src/DEO.hs	/^--feh (a,a') (b,b') = (min a b, a' || b')$/;"	fi	line:38
+--fixter	./src/Test.hs	/^--fixter p xs = fix (\\f)$/;"	fi	line:56
+--foldl1'	./src/Test.hs	/^--foldl1' = foldl1$/;"	fi	line:434
+--lengthAE	./src/Bleh.hs	/^--lengthAE x = length . dataTypeConstrs . dataTypeOf $ (undefined :: a)$/;"	fi	line:179
+--main	./src/Test.hs	/^--main = print $ unique 6 45$/;"	fi	line:456
+--main	./test/Spec.hs	/^--main = putStrLn "Test suite not yet implemented"$/;"	fi	line:4
+--main''	./src/Test.hs	/^--main'' = print $ unique 2 3$/;"	fi	line:457
+--prop_beat_lost	./src/Test.hs	/^--prop_beat_lost :: Move -> Bool$/;"	ft	line:430
+--prop_beat_lost	./src/Test.hs	/^--prop_beat_lost = (id ==) . beat . lose$/;"	fi	line:431
+<	./src/Feg.hs	/^(<) :: (Ord a, Ord b) => a -> b -> Bool$/;"	ft	line:13
+<.>	./src/Utility.hs	/^(<.>) :: (Functor f) => (a -> b) -> (t -> f a) -> t -> f b$/;"	ft	line:22
+<|	./src/Finger.hs	/^(<|) :: a -> FingerTree a -> FingerTree a$/;"	ft	line:41
+Agent	./src/Datakind.hs	/^data Agent = Python | Php | Java$/;"	d	line:17
+Agent	./src/Datakind.hs	/^data Agent' a = Agent [a]$/;"	d	line:29
+Agent'	./src/Datakind.hs	/^data Agent' a = Agent [a]$/;"	d	line:29
+AlgebraEnum	./src/Bleh.hs	/^data AlgebraEnum = One | Two | Three | Four | Five deriving Data$/;"	d	line:121
+And	./src/Cube.hs	/^class And b1 b2 b | b1 b2 -> b where$/;"	c	line:41
+And	./src/Cube.hs	/^class And b1 b2 b | b1 b2 -> b where$/;"	c	line:41
+AppendIf	./src/Cube.hs	/^class AppendIf b x ys zs | b x ys -> zs$/;"	c	line:102
+Apply	./src/Cube.hs	/^class Apply f a b | f a -> b where apply :: f -> a -> b$/;"	c	line:69
+Apply	./src/Cube.hs	/^class Apply f a b | f a -> b where apply :: f -> a -> b$/;"	c	line:69
+B	./src/Cube.hs	/^data B$/;"	d	line:13
+Blanc	./src/Chess.hs	/^data Couleur = Blanc | Noir$/;"	d	line:14
+Bleh	./src/Bleh.hs	/^module Bleh where$/;"	m	line:10
+Board	./src/Chess.hs	/^type Board = Map.Map Coor Piece$/;"	t	line:12
+Cavalier	./src/Chess.hs	/^data TypePiece =  Pion | Tour | Cavalier | Fou | Reine | Roi$/;"	cons	line:26
+Chen	./app/Main.hs	/^data Chew = Chon | Chen deriving (Show, Eq)$/;"	cons	line:12
+Chess	./src/Chess.hs	/^module Chess where$/;"	m	line:3
+Chew	./app/Main.hs	/^data Chew = Chon | Chen deriving (Show, Eq)$/;"	d	line:12
+Chon	./app/Main.hs	/^data Chew = Chon | Chen deriving (Show, Eq)$/;"	d	line:12
+Combine	./src/Test.hs	/^newtype Combine a b =$/;"	nt	line:370
+Combine	./src/Test.hs	/^  Combine { unCombine :: (a -> b) }$/;"	cons	line:371
+CombineSum	./src/Test.hs	/^type CombineSum = Combine Int (Sum Int)$/;"	t	line:388
+Cons	./src/Cube.hs	/^data Cons x xs -- not used, ::: is now 'Cons'$/;"	d	line:52
+Cont	./src/Cont.hs	/^module Cont where$/;"	m	line:2
+Coor	./src/Chess.hs	/^type Coor = (Int,Int)$/;"	t	line:10
+Couleur	./src/Chess.hs	/^data Couleur = Blanc | Noir$/;"	d	line:14
+CubRed	./src/Cube.hs	/^type CubRed = Cube R R R R R R$/;"	t	line:18
+Cube	./src/Cube.hs	/^data Cube u f r b l d$/;"	d	line:16
+Cube1	./src/Cube.hs	/^type Cube1 = Cube B G W G B R$/;"	t	line:21
+Cube2	./src/Cube.hs	/^type Cube2 = Cube W G B W R R$/;"	t	line:22
+Cube3	./src/Cube.hs	/^type Cube3 = Cube G W R B R R$/;"	t	line:23
+Cube4	./src/Cube.hs	/^type Cube4 = Cube B R G G W W$/;"	t	line:24
+CubeBlue	./src/Cube.hs	/^type CubeBlue = Cube B B B B B B$/;"	t	line:19
+DEO	./src/DEO.hs	/^module DEO where$/;"	m	line:1
+DaPhone	./src/Bleh.hs	/^data DaPhone = DaPhone  [(String,String)] deriving Show$/;"	d	line:219
+DaPhone	./src/Bleh.hs	/^data DaPhone = DaPhone  [(String,String)] deriving Show$/;"	d	line:219
+Datakind	./src/Datakind.hs	/^module Datakind where$/;"	m	line:5
+Deep	./src/Finger.hs	/^                  | Deep (Digit a) (FingerTree (Node a)) (Digit a)$/;"	cons	line:18
+Deep	./src/Finger.hs	/^Deep pr m (Four e d c b) |> a = Deep pr (m |> Node3 e d c) (Two b a)$/;"	fi	line:53
+Digit	./src/Finger.hs	/^data Digit a = One a | Two a a | Three a a a | Four a a a a deriving Show$/;"	d	line:20
+Do	./src/Do.hs	/^module Do where$/;"	m	line:2
+Draw	./src/Test.hs	/^              Draw$/;"	cons	line:422
+Empty	./src/Bleh.hs	/^data Tree a = Empty | Leaf a | Node (Tree a) a (Tree a) deriving (Show, Eq)$/;"	d	line:360
+Empty	./src/Finger.hs	/^data FingerTree a = Empty$/;"	d	line:16
+Empty	./src/Finger.hs	/^Empty                    |> a = Single a$/;"	fi	line:51
+Failure	./src/Feg.hs	/^data Validation a b = Success b | Failure a deriving (Show, Eq)$/;"	cons	line:21
+False	./src/Cube.hs	/^data False$/;"	d	line:39
+Feg	./src/Feg.hs	/^module Feg where$/;"	m	line:7
+Filter	./src/Cube.hs	/^class Filter f xs zs | f xs -> zs where$/;"	c	line:95
+Filter	./src/Cube.hs	/^class Filter f xs zs | f xs -> zs where$/;"	c	line:95
+Finger	./src/Finger.hs	/^module Finger where$/;"	m	line:3
+FingerTree	./src/Finger.hs	/^data FingerTree a = Empty$/;"	d	line:16
+Five	./src/Bleh.hs	/^data AlgebraEnum = One | Two | Three | Four | Five deriving Data$/;"	cons	line:121
+Flip	./src/Cube.hs	/^data Flip$/;"	d	line:73
+Fou	./src/Chess.hs	/^data TypePiece =  Pion | Tour | Cavalier | Fou | Reine | Roi$/;"	cons	line:26
+Four	./src/Bleh.hs	/^data AlgebraEnum = One | Two | Three | Four | Five deriving Data$/;"	cons	line:121
+Four	./src/Finger.hs	/^data Digit a = One a | Two a a | Three a a a | Four a a a a deriving Show$/;"	cons	line:20
+G	./src/Cube.hs	/^data G$/;"	d	line:12
+IsAgent	./src/Datakind.hs	/^class IsAgent a where$/;"	c	line:31
+IsAgent	./src/Datakind.hs	/^class IsAgent a where$/;"	c	line:31
+Java	./src/Datakind.hs	/^data Agent = Python | Php | Java$/;"	cons	line:17
+JavaAgent	./src/Datakind.hs	/^data JavaAgent = JavaAgent$/;"	d	line:25
+JavaAgent	./src/Datakind.hs	/^data JavaAgent = JavaAgent$/;"	d	line:25
+Leaf	./src/Bleh.hs	/^data Tree a = Empty | Leaf a | Node (Tree a) a (Tree a) deriving (Show, Eq)$/;"	cons	line:360
+Leaf	./src/Test.hs	/^data Tree a = Leaf$/;"	d	line:235
+Lf	./src/Test.hs	/^data Tr a = Lf | Nd (Tr a) a (Tr a)$/;"	d	line:80
+Lib	./src/Lib.hs	/^module Lib$/;"	m	line:1
+ListConcat	./src/Cube.hs	/^class ListConcat l1 l2 l | l1 l2 -> l where$/;"	c	line:60
+ListConcat	./src/Cube.hs	/^class ListConcat l1 l2 l | l1 l2 -> l where$/;"	c	line:60
+Lose	./src/Test.hs	/^data Result = Lose |$/;"	d	line:420
+Main	./app/Main.hs	/^module Main where$/;"	m	line:1
+Map	./src/Cube.hs	/^class Map f xs zs | f xs -> zs where$/;"	c	line:86
+Map	./src/Cube.hs	/^class Map f xs zs | f xs -> zs where$/;"	c	line:86
+Max	./src/Bleh.hs	/^newtype Max a = Max { getMax :: Maybe a } deriving (Eq, Ord, Show)$/;"	nt	line:385
+Max	./src/Bleh.hs	/^newtype Max a = Max { getMax :: Maybe a } deriving (Eq, Ord, Show)$/;"	cons	line:385
+Mem	./src/Test.hs	/^newtype Mem s a = Mem {runMem :: s -> (a,s)}$/;"	nt	line:353
+Mem	./src/Test.hs	/^newtype Mem s a = Mem {runMem :: s -> (a,s)}$/;"	cons	line:353
+Min	./src/Bleh.hs	/^newtype Min a = Min { getMin :: Maybe a } deriving (Eq, Ord, Show)$/;"	nt	line:386
+Min	./src/Bleh.hs	/^newtype Min a = Min { getMin :: Maybe a } deriving (Eq, Ord, Show)$/;"	cons	line:386
+Move	./src/Test.hs	/^data Move = Rock |$/;"	d	line:405
+Muffin	./src/Bleh.hs	/^data Muffin$/;"	d	line:186
+Nat	./src/Bleh.hs	/^data Nat = Zero$/;"	d	line:188
+Nd	./src/Test.hs	/^data Tr a = Lf | Nd (Tr a) a (Tr a)$/;"	cons	line:80
+Nil	./src/Cube.hs	/^data Nil$/;"	d	line:51
+Node	./src/Bleh.hs	/^data Tree a = Empty | Leaf a | Node (Tree a) a (Tree a) deriving (Show, Eq)$/;"	cons	line:360
+Node	./src/Finger.hs	/^data Node a = Node2 a a | Node3 a a a deriving Show$/;"	d	line:21
+Node	./src/Test.hs	/^            | Node (Tree a) a (Tree a)$/;"	cons	line:236
+Node2	./src/Finger.hs	/^data Node a = Node2 a a | Node3 a a a deriving Show$/;"	d	line:21
+Node3	./src/Finger.hs	/^data Node a = Node2 a a | Node3 a a a deriving Show$/;"	cons	line:21
+Noir	./src/Chess.hs	/^data Couleur = Blanc | Noir$/;"	cons	line:14
+Observer	./src/Test.hs	/^newtype Observer r a = Observer {runObserve :: r -> a}$/;"	nt	line:347
+Observer	./src/Test.hs	/^newtype Observer r a = Observer {runObserve :: r -> a}$/;"	cons	line:347
+One	./src/Bleh.hs	/^data AlgebraEnum = One | Two | Three | Four | Five deriving Data$/;"	d	line:121
+One	./src/Finger.hs	/^data Digit a = One a | Two a a | Three a a a | Four a a a a deriving Show$/;"	d	line:20
+PP	./src/PP.hs	/^module PP where$/;"	m	line:5
+Paper	./src/Test.hs	/^            Paper |$/;"	cons	line:406
+Parser	./src/Bleh.hs	/^newtype Parser a = Parser { runParser :: String -> Maybe (a, String) }$/;"	nt	line:35
+Parser	./src/Bleh.hs	/^newtype Parser a = Parser { runParser :: String -> Maybe (a, String) }$/;"	cons	line:35
+Php	./src/Datakind.hs	/^data Agent = Python | Php | Java$/;"	cons	line:17
+PhpAgent	./src/Datakind.hs	/^data PhpAgent = PhpAgent$/;"	d	line:27
+PhpAgent	./src/Datakind.hs	/^data PhpAgent = PhpAgent$/;"	d	line:27
+Piece	./src/Chess.hs	/^data Piece = Piece { typeP   :: TypePiece$/;"	d	line:28
+Piece	./src/Chess.hs	/^data Piece = Piece { typeP   :: TypePiece$/;"	d	line:28
+Pion	./src/Chess.hs	/^data TypePiece =  Pion | Tour | Cavalier | Fou | Reine | Roi$/;"	d	line:26
+Python	./src/Datakind.hs	/^data Agent = Python | Php | Java$/;"	d	line:17
+PythonAgent	./src/Datakind.hs	/^data PythonAgent = PythonAgent$/;"	d	line:26
+PythonAgent	./src/Datakind.hs	/^data PythonAgent = PythonAgent$/;"	d	line:26
+R	./src/Cube.hs	/^data R$/;"	d	line:11
+Reine	./src/Chess.hs	/^data TypePiece =  Pion | Tour | Cavalier | Fou | Reine | Roi$/;"	cons	line:26
+Result	./src/Test.hs	/^data Result = Lose |$/;"	d	line:420
+Rock	./src/Test.hs	/^data Move = Rock |$/;"	d	line:405
+Roi	./src/Chess.hs	/^data TypePiece =  Pion | Tour | Cavalier | Fou | Reine | Roi$/;"	cons	line:26
+RoseTree	./src/Test.hs	/^data RoseTree a = RoseTree a [RoseTree a] deriving (Show)$/;"	d	line:26
+RoseTree	./src/Test.hs	/^data RoseTree a = RoseTree a [RoseTree a] deriving (Show)$/;"	d	line:26
+Rotation	./src/Cube.hs	/^data Rotation$/;"	d	line:71
+Scissors	./src/Test.hs	/^            Scissors$/;"	cons	line:407
+Single	./src/Finger.hs	/^                  | Single a$/;"	cons	line:17
+Single	./src/Finger.hs	/^Single b                 |> a = Deep (One b) Empty (One a)$/;"	fi	line:52
+Succ	./src/Bleh.hs	/^         | Succ Nat$/;"	cons	line:189
+Success	./src/Feg.hs	/^data Validation a b = Success b | Failure a deriving (Show, Eq)$/;"	d	line:21
+Swayal	./src/Bleh.hs	/^data Swayal a = forall b c d . Swayali (d -> a (b (a (b (a c)))))$/;"	d	line:49
+Test	./src/Bleh.hs	/^data Test = Test Int deriving (Show)$/;"	d	line:181
+Test	./src/Bleh.hs	/^data Test = Test Int deriving (Show)$/;"	d	line:181
+Test	./src/Test.hs	/^module Test where$/;"	m	line:8
+Text	./src/numtowords.hs	/^type Text = [Char]$/;"	t	line:5
+Three	./src/Bleh.hs	/^data AlgebraEnum = One | Two | Three | Four | Five deriving Data$/;"	cons	line:121
+Three	./src/Finger.hs	/^data Digit a = One a | Two a a | Three a a a | Four a a a a deriving Show$/;"	cons	line:20
+TotallySafe	./src/Bleh.hs	/^newtype TotallySafe = TotallySafeGuys (IO ())$/;"	nt	line:116
+TotallySafeGuys	./src/Bleh.hs	/^newtype TotallySafe = TotallySafeGuys (IO ())$/;"	cons	line:116
+Tour	./src/Chess.hs	/^data TypePiece =  Pion | Tour | Cavalier | Fou | Reine | Roi$/;"	cons	line:26
+Tr	./src/Test.hs	/^data Tr a = Lf | Nd (Tr a) a (Tr a)$/;"	d	line:80
+Transforms	./src/Cube.hs	/^class Transforms u f r b l d where$/;"	c	line:26
+Transforms	./src/Cube.hs	/^class Transforms u f r b l d where$/;"	c	line:26
+Tree	./src/Bleh.hs	/^data Tree a = Empty | Leaf a | Node (Tree a) a (Tree a) deriving (Show, Eq)$/;"	d	line:360
+Tree	./src/Test.hs	/^data Tree a = Leaf$/;"	d	line:235
+True	./src/Cube.hs	/^data True$/;"	d	line:38
+Twist	./src/Cube.hs	/^data Twist$/;"	d	line:72
+Two	./src/Bleh.hs	/^data AlgebraEnum = One | Two | Three | Four | Five deriving Data$/;"	cons	line:121
+Two	./src/Finger.hs	/^data Digit a = One a | Two a a | Three a a a | Four a a a a deriving Show$/;"	cons	line:20
+TypePiece	./src/Chess.hs	/^data TypePiece =  Pion | Tour | Cavalier | Fou | Reine | Roi$/;"	d	line:26
+Utility	./src/Utility.hs	/^module Utility where$/;"	m	line:1
+Validation	./src/Feg.hs	/^data Validation a b = Success b | Failure a deriving (Show, Eq)$/;"	d	line:21
+W	./src/Cube.hs	/^data W$/;"	d	line:14
+Win	./src/Test.hs	/^              Win   |$/;"	cons	line:421
+Word	./src/numtowords.hs	/^type Word = [Char]$/;"	t	line:4
+Zero	./src/Bleh.hs	/^data Nat = Zero$/;"	d	line:188
+a	./src/Finger.hs	/^a <| Empty = Single a$/;"	fi	line:42
+aboveAverage	./src/Test.hs	/^aboveAverage :: [Int] -> Int$/;"	ft	line:401
+aboveAverage	./src/Test.hs	/^aboveAverage list = length(filter (> average list) list)$/;"	fi	line:402
+and	./src/Cube.hs	/^  and :: b1 -> b2 -> b$/;"	ft	line:42
+apply	./src/Cube.hs	/^class Apply f a b | f a -> b where apply :: f -> a -> b$/;"	ft	line:69
+applyOverFst	./src/Bleh.hs	/^applyOverFst :: (a -> b) -> [(a,b)] -> [b]$/;"	ft	line:374
+applyOverFst	./src/Bleh.hs	/^applyOverFst f xs = map (f . fst) xs$/;"	fi	line:375
+asAppliedTo	./src/Utility.hs	/^asAppliedTo :: (a -> b) -> a -> a -> b$/;"	ft	line:30
+asAppliedTo	./src/Utility.hs	/^asAppliedTo f a _ = f a$/;"	fi	line:31
+average	./src/Test.hs	/^average :: [Int] -> Int$/;"	ft	line:398
+average	./src/Test.hs	/^average list = sum list `div` length list$/;"	fi	line:399
+avrg	./src/Test.hs	/^avrg :: (Fractional a, Foldable t) => t a -> a$/;"	ft	line:324
+avrg	./src/Test.hs	/^avrg x = sum x \/ (fromIntegral . length) x$/;"	fi	line:325
+beat	./src/Test.hs	/^beat :: Move -> Move$/;"	ft	line:410
+beat	./src/Test.hs	/^beat Rock = Paper$/;"	fi	line:411
+beffh	./src/Bleh.hs	/^beffh = foldr f [] [1,3,12,13,4,3,3,22,4,22,9,22,10]$/;"	fi	line:345
+beffh'	./src/Bleh.hs	/^beffh' = uncurry replicate $ foldr1 f $ zip [1,1..] [1,3,12,13,4,3,3,22,4,22,9,22,10]$/;"	fi	line:353
+beh	./src/Bleh.hs	/^beh xs =  [ x | x <- xs, y <- tail xs, fst x \/= fst y, snd x \/= snd y]$/;"	fi	line:509
+beh	./src/Test.hs	/^beh = do$/;"	fi	line:362
+beh'	./src/Test.hs	/^beh' = zipWith (*) <*> tail $ [1..10]$/;"	fi	line:164
+behladsfsgdfglfsdfe	./src/Bleh.hs	/^behladsfsgdfglfsdfe xs =  (minimum (map fst xs), maximum (map snd xs))$/;"	fi	line:371
+behladsfsgle	./src/Bleh.hs	/^behladsfsgle xs = foldr1 (\\x y -> ((min`on`fst) x y, (max`on`snd) x y)) xs :: (Int, Int)$/;"	fi	line:369
+behladsfsglfsdfe	./src/Bleh.hs	/^behladsfsglfsdfe xs = (minimum (map fst xs), maximum (map snd xs))$/;"	fi	line:370
+behlagle	./src/Bleh.hs	/^behlagle xs = foldr1 (\\x y -> ((min`on`fst) x y, (max`on`snd) x y)) xs :: (Int, Int)$/;"	fi	line:368
+behloogle	./src/Bleh.hs	/^behloogle xs = foldr1 (\\(x,y) (x',y') -> (min x x', max y y')) xs :: (Int, Int)$/;"	fi	line:367
+bindTree	./src/Test.hs	/^bindTree :: RoseTree a -> (a -> RoseTree b) -> RoseTree b$/;"	ft	line:183
+bindTree	./src/Test.hs	/^bindTree t@(RoseTree x xs) f = undefined --pure f <$> x <*> xs$/;"	fi	line:184
+bleeh	./src/Test.hs	/^bleeh :: Int -> (a -> a) -> a -> a$/;"	ft	line:61
+bleeh	./src/Test.hs	/^bleeh n f = appEndo . foldMap Endo $ replicate n f$/;"	fi	line:62
+bleeh'	./src/Test.hs	/^bleeh' :: (Monoid a) => Int -> (a -> a) -> a -> a$/;"	ft	line:64
+bleeh'	./src/Test.hs	/^bleeh' n f = fold $ replicate n f$/;"	fi	line:65
+boardDepart	./src/Chess.hs	/^boardDepart :: Board$/;"	ft	line:58
+boardDepart	./src/Chess.hs	/^boardDepart = Map.fromList [((0,0), Piece Tour Noir),$/;"	fi	line:59
+boardToString	./src/Chess.hs	/^boardToString :: Board -> String$/;"	ft	line:49
+boardToString	./src/Chess.hs	/^boardToString board = (addRowNumber . unlines . addLineNumber) chars$/;"	fi	line:50
+breakString	./src/Test.hs	/^breakString :: Char -> String -> String$/;"	ft	line:334
+breakString	./src/Test.hs	/^breakString _ [] = []$/;"	fi	line:335
+buttons	./src/Bleh.hs	/^buttons = DaPhone  [ ("1", "1")$/;"	fi	line:221
+capitalizeWord	./src/Bleh.hs	/^capitalizeWord :: String -> (String, String)$/;"	ft	line:307
+capitalizeWord	./src/Bleh.hs	/^capitalizeWord [] = ([],[])$/;"	fi	line:308
+capitalizeWords	./src/Bleh.hs	/^capitalizeWords :: String -> [(String, String)]$/;"	ft	line:317
+capitalizeWords	./src/Bleh.hs	/^capitalizeWords w = map capitalizeWord (words w)$/;"	fi	line:318
+changeBoard	./src/Chess.hs	/^changeBoard :: Board -> Coor -> Coor -> Board$/;"	ft	line:156
+changeBoard	./src/Chess.hs	/^changeBoard board ori fin = Map.delete ori (Map.insert fin (board Map.! ori) board)$/;"	fi	line:157
+char	./src/Bleh.hs	/^char :: Char -> Parser Char$/;"	ft	line:45
+char	./src/Bleh.hs	/^char c = satisfy (== c)$/;"	fi	line:46
+charToInteger	./src/Test.hs	/^charToInteger :: Char -> Integer$/;"	ft	line:305
+charToInteger	./src/Test.hs	/^charToInteger x = read [x]$/;"	fi	line:306
+check	./src/Bleh.hs	/^check :: Integer -> Maybe [Integer]$/;"	ft	line:168
+check	./src/Bleh.hs	/^check n$/;"	fi	line:169
+checkFirst	./src/Bleh.hs	/^checkFirst :: [Integer]->Bool$/;"	ft	line:150
+checkFirst	./src/Bleh.hs	/^checkFirst (a:b:_)=(a-b==(totals!!0))$/;"	fi	line:151
+checkFourth	./src/Bleh.hs	/^checkFourth :: [Integer]->Bool$/;"	ft	line:159
+checkFourth	./src/Bleh.hs	/^checkFourth (_:_:c:d:_) = (c-d==(totals!!3))$/;"	fi	line:160
+checkSecond	./src/Bleh.hs	/^checkSecond :: [Integer]->Bool$/;"	ft	line:153
+checkSecond	./src/Bleh.hs	/^checkSecond (a:_:c:_) = (a+c==(totals!!1))$/;"	fi	line:154
+checkThird	./src/Bleh.hs	/^checkThird :: [Integer]->Bool$/;"	ft	line:156
+checkThird	./src/Bleh.hs	/^checkThird (_:b:_:d:_) = (b+d==(totals!!2))$/;"	fi	line:157
+checkValues	./src/Bleh.hs	/^checkValues :: [Integer]->Bool$/;"	ft	line:162
+checkValues	./src/Bleh.hs	/^checkValues values = let func = [checkFirst,checkSecond,checkThird,checkFourth] in foldl (\\acc x -> acc && (x values)) True func$/;"	fi	line:163
+checkValues'	./src/Bleh.hs	/^checkValues' :: [Integer] -> Bool$/;"	ft	line:165
+checkValues'	./src/Bleh.hs	/^checkValues' values = all ($ values) [checkFirst,checkSecond,checkThird,checkFourth]$/;"	fi	line:166
+cheminLibre	./src/Chess.hs	/^cheminLibre :: Board -> (Int,Int) -> (Int,Int) -> Bool$/;"	ft	line:130
+cheminLibre	./src/Chess.hs	/^cheminLibre board (w,x) (y,z) = (case fromJust (Map.lookup (w,x) board) of$/;"	fi	line:131
+chunksOf	./src/Bleh.hs	/^chunksOf :: Int64 -> BL.ByteString -> [BL.ByteString]$/;"	ft	line:496
+chunksOf	./src/Bleh.hs	/^chunksOf k = go$/;"	fi	line:497
+chunksOf	./src/Test.hs	/^chunksOf :: Int -> [a] -> [[a]]$/;"	ft	line:73
+chunksOf	./src/Test.hs	/^chunksOf = fix (\\f acc n xs -> if null xs then acc ++ [] else f (acc ++ [take n xs]) n (drop n xs)) []$/;"	fi	line:74
+chunksOf'	./src/Bleh.hs	/^chunksOf' :: Int64 -> BL.ByteString -> [BL.ByteString]$/;"	ft	line:504
+chunksOf'	./src/Bleh.hs	/^chunksOf' k bs = let (a,b) = BL.splitAt k bs$/;"	fi	line:505
+co	./src/Test.hs	/^co::(b->c)->(a->b)->(a->c)$/;"	ft	line:393
+co	./src/Test.hs	/^co = \\f g x -> f (g x)$/;"	fi	line:396
+co'	./src/Test.hs	/^co' = (.)$/;"	fi	line:394
+combineSmush	./src/Test.hs	/^combineSmush :: CombineSum -> CombineSum -> CombineSum$/;"	ft	line:389
+combineSmush	./src/Test.hs	/^combineSmush = (<>)$/;"	fi	line:390
+convert	./src/numtowords.hs	/^convert :: Int -> String$/;"	ft	line:42
+convert	./src/numtowords.hs	/^convert = convert6$/;"	fi	line:43
+convert1	./src/numtowords.hs	/^convert1 :: Int -> String$/;"	ft	line:14
+convert1	./src/numtowords.hs	/^convert1 n = units!!n$/;"	fi	line:15
+convert2	./src/numtowords.hs	/^convert2 :: Int -> String$/;"	ft	line:17
+convert2	./src/numtowords.hs	/^convert2 n$/;"	fi	line:18
+convert3	./src/numtowords.hs	/^convert3 :: Int -> String$/;"	ft	line:25
+convert3	./src/numtowords.hs	/^convert3 n$/;"	fi	line:26
+convert6	./src/numtowords.hs	/^convert6 :: Int -> String$/;"	ft	line:32
+convert6	./src/numtowords.hs	/^convert6 n$/;"	fi	line:33
+convertCo	./src/Bleh.hs	/^convertCo :: [String] -> DaPhone -> [(String, Integer)]$/;"	ft	line:277
+convertCo	./src/Bleh.hs	/^convertCo [] list = []$/;"	fi	line:278
+convertSen	./src/Bleh.hs	/^convertSen :: DaPhone -> String -> [(String, Integer)]$/;"	ft	line:273
+convertSen	./src/Bleh.hs	/^convertSen = (=<<) . ((bool id (("*", 1) :) . isUpper) <*>) . reverseTaps'$/;"	fi	line:274
+convertSen'	./src/Bleh.hs	/^convertSen' :: DaPhone -> String -> [(String, Integer)]$/;"	ft	line:268
+convertSen'	./src/Bleh.hs	/^convertSen' d = concatMap $ bool id (("*", 1) :) . isUpper <*> reverseTaps' d$/;"	fi	line:269
+convertSentence	./src/Bleh.hs	/^convertSentence :: String -> DaPhone -> [(String, Integer)]$/;"	ft	line:259
+convertSentence	./src/Bleh.hs	/^convertSentence []  list = []$/;"	fi	line:260
+convertSentence'	./src/Bleh.hs	/^convertSentence' :: DaPhone -> String -> [(String, Integer)]$/;"	ft	line:263
+convertSentence'	./src/Bleh.hs	/^convertSentence' d = concatMap (\\x ->$/;"	fi	line:264
+convo	./src/Bleh.hs	/^convo :: [String]$/;"	ft	line:234
+convo	./src/Bleh.hs	/^convo =$/;"	fi	line:235
+couleur	./src/Chess.hs	/^                   , couleur ::  Couleur}$/;"	c_a	line:29
+cubes	./src/Cube.hs	/^cubes = ["BGWGBR", "WGBWRR", "BRGGWW"]$/;"	fi	line:125
+d1	./src/Finger.hs	/^d1 +|+ d2 = toDigit $ toList d1 ++ toList d2$/;"	fi	line:29
+digits	./src/Test.hs	/^digits :: Integer -> [Integer]$/;"	ft	line:312
+digits	./src/Test.hs	/^digits = map (read . flip (:)[]) . show$/;"	fi	line:313
+digits	./src/Utility.hs	/^digits :: Integral a => a -> [a]$/;"	ft	line:16
+digits	./src/Utility.hs	/^digits = unfoldr (fmap (`modDiv` 10) . guarded (0 \/=))$/;"	fi	line:17
+digits'	./src/Utility.hs	/^digits' :: Integral a => a -> [a]$/;"	ft	line:19
+digits'	./src/Utility.hs	/^digits' = unfoldr ((`modDiv` 10) <.> guarded (0 \/=))$/;"	fi	line:20
+div	./src/Test.hs	/^ | x`div`10 == 0 = 0$/;"	fi	line:318
+doubleEveryOther1	./src/DEO.hs	/^doubleEveryOther1 :: [Integer] -> [Integer]$/;"	ft	line:9
+doubleEveryOther1	./src/DEO.hs	/^doubleEveryOther1 = reverse . zipWith (*) (cycle [1,2]) . reverse$/;"	fi	line:10
+doubleEveryOther2	./src/DEO.hs	/^doubleEveryOther2 = reverse . zipWith ($) (cycle [id,(*2)]) . reverse$/;"	fi	line:11
+doubleEveryOther3	./src/DEO.hs	/^doubleEveryOther3 n@(x:_)$/;"	fi	line:17
+doubleEveryOther4	./src/DEO.hs	/^doubleEveryOther4 list = foldl (\\xs (x,y) -> if even y then x*2:xs else x:xs) [] $ zip (reverse list) [1..]$/;"	fi	line:13
+doubleEveryOtherR	./src/DEO.hs	/^doubleEveryOtherR [] = []$/;"	fi	line:26
+doubleEveryOtherW	./src/DEO.hs	/^doubleEveryOtherW n@(x:_)$/;"	fi	line:22
+doubleSecond	./src/Test.hs	/^doubleSecond  xs   = doubleSecond' xs True$/;"	fi	line:43
+doubleSecond'	./src/Test.hs	/^doubleSecond' [] _ = []$/;"	fi	line:44
+dropFirstDigit	./src/Test.hs	/^dropFirstDigit :: Integer -> Integer$/;"	ft	line:321
+dropFirstDigit	./src/Test.hs	/^dropFirstDigit = read . drop 1 . show$/;"	fi	line:322
+dropLastDigit	./src/Test.hs	/^dropLastDigit :: Integer -> Integer$/;"	ft	line:316
+either'	./src/Bleh.hs	/^either' :: (a -> c) -> (b -> c) -> Either a b -> c$/;"	ft	line:94
+either'	./src/Bleh.hs	/^either' f g e =$/;"	fi	line:95
+eitherMaybe'	./src/Bleh.hs	/^eitherMaybe' :: (b -> c) -> Either a b -> Maybe c$/;"	ft	line:88
+eitherMaybe'	./src/Bleh.hs	/^eitherMaybe' f l =$/;"	fi	line:89
+eitherMaybe''	./src/Bleh.hs	/^eitherMaybe'' :: (b -> c) -> Either a b -> Maybe c$/;"	ft	line:100
+eitherMaybe''	./src/Bleh.hs	/^eitherMaybe'' f = either (const Nothing) (Just . f)$/;"	fi	line:101
+ex1	./src/Cont.hs	/^ex1 = do$/;"	fi	line:7
+ex2	./src/Cont.hs	/^ex2 = do$/;"	fi	line:14
+ex3	./src/Cont.hs	/^ex3 = do$/;"	fi	line:21
+ex4	./src/Cont.hs	/^ex4 = do$/;"	fi	line:30
+f3	./src/Feg.hs	/^f3 :: a -> a -> a$/;"	ft	line:28
+f3	./src/Feg.hs	/^f3 n1 _ = n1$/;"	fi	line:29
+f3'	./src/Feg.hs	/^f3' :: a -> a -> a$/;"	ft	line:31
+f3'	./src/Feg.hs	/^f3' _ n2 = n2$/;"	fi	line:32
+fact	./src/Test.hs	/^fact n = foldl1' (*) [1..n]$/;"	fi	line:439
+fadsa	./src/Bleh.hs	/^fadsa :: [(Int, Int)] -> (Int, Int)$/;"	ft	line:118
+fadsa	./src/Bleh.hs	/^fadsa = maximumBy (compare`on`fst)$/;"	fi	line:119
+fasd	./src/Bleh.hs	/^fasd :: Int -> Int -> Int$/;"	ft	line:381
+fasd	./src/Bleh.hs	/^fasd _ 0 = error "tits"$/;"	fi	line:382
+fast	./src/Bleh.hs	/^fast x y = x + y$/;"	fi	line:383
+feh	./src/Bleh.hs	/^feh :: (a -> Bool) -> Int -> [a] -> [(a,Int)]$/;"	ft	line:327
+feh	./src/Bleh.hs	/^feh _ _ [] = []$/;"	fi	line:328
+filter	./src/Cube.hs	/^  filter :: f -> xs -> zs$/;"	ft	line:96
+filterTree'	./src/Test.hs	/^filterTree' :: (a -> Bool) -> Tree a -> Tree a$/;"	ft	line:273
+filterTree'	./src/Test.hs	/^filterTree' p = craft . filter p . collectTree$/;"	fi	line:274
+first	./src/Bleh.hs	/^first :: (a -> b) -> (a,c) -> (b,c)$/;"	ft	line:75
+first	./src/Bleh.hs	/^first f (x,y) = (f x, y)$/;"	fi	line:76
+flatmap	./src/Test.hs	/^flatmap f = flatten . map f$/;"	fi	line:330
+flatmap'	./src/Test.hs	/^flatmap' :: (a -> [b]) -> [a] -> [b]$/;"	ft	line:331
+flatmap'	./src/Test.hs	/^flatmap' = (flatten .) . map$/;"	fi	line:332
+flatten	./src/Test.hs	/^flatten :: [[a]] -> [a]$/;"	ft	line:327
+flatten	./src/Test.hs	/^flatten = concat$/;"	fi	line:328
+flip	./src/Cube.hs	/^  flip :: Cube u f r b l d -> Cube d l b r f u$/;"	ft	line:29
+foldl_5	./src/Test.hs	/^foldl_5                :: (b -> a -> b) -> b -> [a] -> b$/;"	ft	line:341
+foldl_5	./src/Test.hs	/^foldl_5 f z xs          = foldr (\\x rebc a -> rebc (f a x)) (\\a -> a) xs z$/;"	fi	line:342
+foo	./src/Bleh.hs	/^foo :: IO ()$/;"	ft	line:490
+foo	./src/Bleh.hs	/^foo = do$/;"	fi	line:491
+foo	./src/Datakind.hs	/^foo :: (IsAgent a) => [a] -> Bool$/;"	ft	line:34
+foo	./src/Datakind.hs	/^foo (b:_) = isAgent b$/;"	fi	line:35
+foo	./src/Test.hs	/^foo = ((+1) LT.. (+2)) 2$/;"	fi	line:292
+forall	./src/Bleh.hs	/^data Swayal a = forall b c d . Swayali (d -> a (b (a (b (a c)))))$/;"	d	line:49
+functions	./src/Bleh.hs	/^functions = [(\\a->a),getB,getC,getD]$/;"	fi	line:145
+fw	./src/Test.hs	/^fw x = x + x$/;"	fi	line:41
+gameLoop	./src/Chess.hs	/^gameLoop :: Board -> Couleur -> IO ()$/;"	ft	line:159
+gameLoop	./src/Chess.hs	/^gameLoop board joueur = do$/;"	fi	line:160
+getB	./src/Bleh.hs	/^getB :: Integer->Integer$/;"	ft	line:136
+getB	./src/Bleh.hs	/^getB a = (totals!!0)+a$/;"	fi	line:137
+getC	./src/Bleh.hs	/^getC :: Integer -> Integer$/;"	ft	line:139
+getC	./src/Bleh.hs	/^getC a = (totals!!1)-a$/;"	fi	line:140
+getD	./src/Bleh.hs	/^getD :: Integer -> Integer$/;"	ft	line:142
+getD	./src/Bleh.hs	/^getD a=(totals!!2)-(getB a)$/;"	fi	line:143
+getMax	./src/Bleh.hs	/^newtype Max a = Max { getMax :: Maybe a } deriving (Eq, Ord, Show)$/;"	c_a	line:385
+getMin	./src/Bleh.hs	/^newtype Min a = Min { getMin :: Maybe a } deriving (Eq, Ord, Show)$/;"	c_a	line:386
+getValues	./src/Bleh.hs	/^getValues :: Integer->[Integer]$/;"	ft	line:147
+getValues	./src/Bleh.hs	/^getValues a = zipWith (\\a func -> func a) (replicate 4 a) functions$/;"	fi	line:148
+guarded	./src/Utility.hs	/^guarded :: Alternative f => (a -> Bool) -> a -> f a$/;"	ft	line:13
+guarded	./src/Utility.hs	/^guarded p x = bool empty (pure x) (p x)$/;"	fi	line:14
+h	./src/Test.hs	/^h :: (f a -> f b)$/;"	ft	line:197
+h	./src/Test.hs	/^h = undefined$/;"	fi	line:198
+histogram	./src/Bleh.hs	/^histogram :: [Integer] -> String$/;"	ft	line:301
+histogram	./src/Bleh.hs	/^histogram a = draw $ map (`take` (repeat '*')) (map length $ group $ sort a)$/;"	fi	line:302
+hylo	./src/Test.hs	/^hylo :: Functor f => (f b -> b) -> (a -> f a) -> (a -> b)$/;"	ft	line:220
+hylo	./src/Test.hs	/^hylo f g = f . fmap (hylo f g) . g --fa -> fb$/;"	fi	line:221
+inBoard	./src/Chess.hs	/^inBoard :: (Int,Int) -> Bool$/;"	ft	line:93
+inBoard	./src/Chess.hs	/^inBoard (x,y)= xIn && yIn$/;"	fi	line:94
+inParser	./src/Bleh.hs	/^inParser f = Parser . f . runParser$/;"	fi	line:73
+insert'	./src/Test.hs	/^insert' :: Int -> Tr Int -> Tr Int$/;"	ft	line:83
+insert'	./src/Test.hs	/^insert' n Lf = Nd Lf n Lf$/;"	fi	line:84
+insertElem	./src/Bleh.hs	/^insertElem :: Eq a => ([a], [a]) -> a -> ([a], [a])$/;"	ft	line:452
+insertElem	./src/Bleh.hs	/^insertElem (a, []       ) el =            (a ++ [el]        , [])$/;"	fi	line:453
+insertTree	./src/Test.hs	/^insertTree :: Ord a => a -> Tree a -> Tree a$/;"	ft	line:240
+insertTree	./src/Test.hs	/^insertTree i Leaf = Node Leaf i Leaf$/;"	fi	line:241
+instance	./src/Bleh.hs	/^instance Functor Parser where$/;"	fi	line:84
+instance	./src/Chess.hs	/^instance Show Couleur where$/;"	fi	line:16
+instance	./src/Cube.hs	/^instance Transforms u f r b l d where$/;"	fi	line:31
+instance	./src/Feg.hs	/^instance Functor (Validation a) where$/;"	fi	line:23
+instance	./src/Finger.hs	/^instance Foldable Digit where$/;"	fi	line:61
+instance	./src/Test.hs	/^instance Functor RoseTree where$/;"	fi	line:28
+intclist	./src/Test.hs	/^intclist _ [] = []$/;"	fi	line:230
+integerToString	./src/Test.hs	/^integerToString :: Integer -> String$/;"	ft	line:308
+integerToString	./src/Test.hs	/^integerToString x = show x$/;"	fi	line:309
+isAgent	./src/Datakind.hs	/^  isAgent :: a -> Bool$/;"	ft	line:32
+iterfix	./src/Test.hs	/^iterfix :: (Num b, Eq b) => b -> (a -> a) -> (a -> a)$/;"	ft	line:58
+iterfix	./src/Test.hs	/^iterfix = fix (\\rec' n f -> if n == 0 then id else f . rec' (n-1) f)$/;"	fi	line:59
+lastDigit	./src/Test.hs	/^lastDigit :: Integer -> Integer$/;"	ft	line:298
+lastDigit	./src/Test.hs	/^lastDigit x = read [last . show $ x]$/;"	fi	line:299
+less	./src/Test.hs	/^less (_, []) = []$/;"	fi	line:225
+less'	./src/Test.hs	/^less' (_, []) = []; less' (e, x:xs) = if x < e then x : less' (e, xs) else less' (e, xs)$/;"	fi	line:223
+limit	./src/Bleh.hs	/^limit=1000000$/;"	fi	line:133
+listConcat	./src/Cube.hs	/^  listConcat :: l1 -> l2 -> l$/;"	ft	line:61
+lose	./src/Test.hs	/^lose :: Move -> Move$/;"	ft	line:415
+lose	./src/Test.hs	/^lose Rock = Scissors$/;"	fi	line:416
+main	./Setup.hs	/^main = defaultMain$/;"	fi	line:2
+main	./app/Main.hs	/^main :: IO ()$/;"	ft	line:6
+main	./app/Main.hs	/^main = do$/;"	fi	line:7
+main	./src/Bleh.hs	/^main = do$/;"	fi	line:518
+main	./src/Chess.hs	/^main :: IO ()$/;"	ft	line:184
+main	./src/Chess.hs	/^main = gameLoop boardDepart Blanc$/;"	fi	line:185
+main	./src/Do.hs	/^main :: IO ()$/;"	ft	line:7
+main	./src/Do.hs	/^main = hspec $ do$/;"	fi	line:8
+main	./src/PP.hs	/^main :: IO ()$/;"	ft	line:22
+main	./src/PP.hs	/^main = do$/;"	fi	line:23
+main	./src/Test.hs	/^main = print $ rebot 500000 (*2) 2$/;"	fi	line:78
+main	./src/bloogle.hs	/^main = something$/;"	fi	line:7
+main	./src/numtowords.hs	/^main :: IO ()$/;"	ft	line:7
+main	./src/numtowords.hs	/^main = putStrLn $ convert 23053$/;"	fi	line:8
+main	./test/Spec.hs	/^main :: IO ()$/;"	ft	line:3
+main	./test/Spec.hs	/^main = DEO.run$/;"	fi	line:5
+main'	./src/Bleh.hs	/^main' = print $ show $ check start$/;"	fi	line:175
+main'	./src/Test.hs	/^main' = do$/;"	fi	line:192
+map	./src/Cube.hs	/^  map :: f -> xs -> zs$/;"	ft	line:87
+map'	./src/Test.hs	/^map' :: (a -> b) -> [a] -> [b]$/;"	ft	line:186
+map'	./src/Test.hs	/^map' = map$/;"	fi	line:187
+maxFour3	./src/Test.hs	/^maxFour3 :: Integer -> Integer -> Integer -> Integer -> Integer$/;"	ft	line:217
+maxFour3	./src/Test.hs	/^maxFour3  a b c  = max(maxThree a b c)$/;"	fi	line:218
+maxOccurs	./src/Test.hs	/^maxOccurs :: (Num a, Ord a) => [a] -> (a, a)$/;"	ft	line:206
+maxOccurs	./src/Test.hs	/^maxOccurs xs =$/;"	fi	line:207
+maxThree	./src/Test.hs	/^maxThree :: Integer -> Integer -> Integer -> Integer$/;"	ft	line:211
+maxThree	./src/Test.hs	/^maxThree x y z$/;"	fi	line:212
+maxThreeOccurs	./src/Test.hs	/^maxThreeOccurs :: Int -> Int -> Int -> (Int, Int)$/;"	ft	line:200
+maxThreeOccurs	./src/Test.hs	/^maxThreeOccurs x y z = (maxNum, length (filter (== maxNum) els))$/;"	fi	line:201
+meh	./src/Bleh.hs	/^meh xs = bimap minimum maximum $ unzip xs :: (Int, Int)$/;"	fi	line:410
+modDiv	./src/Utility.hs	/^modDiv :: Integral b => b -> b -> (b, b)$/;"	ft	line:10
+modDiv	./src/Utility.hs	/^a `modDiv` b = swap (a `divMod` b)$/;"	fi	line:11
+multiEqual	./src/Bleh.hs	/^multiEqual xs ys = xs == [x | x <- xs, y <- ys, x==y]$/;"	fi	line:60
+multiEqual'	./src/Bleh.hs	/^multiEqual' :: (Eq a) => [a] -> [a] -> Bool$/;"	ft	line:51
+multiEqual'	./src/Bleh.hs	/^multiEqual' [] [] = True$/;"	fi	line:52
+multiplication	./src/Test.hs	/^multiplication :: Integer -> Integer -> Integer$/;"	ft	line:107
+multiplication	./src/Test.hs	/^multiplication  x y$/;"	fi	line:108
+natToInteger	./src/Bleh.hs	/^natToInteger :: Nat -> Integer$/;"	ft	line:192
+natToInteger	./src/Bleh.hs	/^natToInteger Zero = 0$/;"	fi	line:193
+orderTriple	./src/Test.hs	/^orderTriple (a,b,c) = let [x,y,z] = sort [a,b,c] in (x,y,z)$/;"	fi	line:145
+outcome	./src/Test.hs	/^outcome :: Move -> Move -> Result$/;"	ft	line:424
+outcome	./src/Test.hs	/^outcome m1 m2$/;"	fi	line:425
+p	./src/Test.hs	/^n `p` r = foldl1' (*) [n-r+1..n]$/;"	fi	line:442
+port	./src/Bleh.hs	/^port   = 6667$/;"	fi	line:516
+port	./src/Test.hs	/^port   = 6667$/;"	fi	line:190
+posInt	./src/Bleh.hs	/^posInt :: Parser Integer$/;"	ft	line:65
+posInt	./src/Bleh.hs	/^posInt = Parser f$/;"	fi	line:66
+prop_Associative	./src/Test.hs	/^prop_Associative :: (Eq a) => (a -> a -> a) -> a -> a -> a -> Bool$/;"	ft	line:385
+prop_Associative	./src/Test.hs	/^prop_Associative f a b c = f a ( f b c ) == f (f a b) c$/;"	fi	line:386
+prop_win	./src/Test.hs	/^prop_win x y = beat x == y Q.==> outcome x y == Win$/;"	fi	line:433
+quicksort	./src/Bleh.hs	/^quicksort [] = []$/;"	fi	line:78
+rangeProduct	./src/Test.hs	/^rangeProduct :: Integer -> Integer -> Integer$/;"	ft	line:90
+rangeProduct	./src/Test.hs	/^rangeProduct m n$/;"	fi	line:91
+rebot	./src/Test.hs	/^rebot n f = iterate (f .) id !! n$/;"	fi	line:54
+repliFix	./src/Test.hs	/^repliFix :: (Num b, Eq b) => b -> (a -> a) -> (a -> a)$/;"	ft	line:70
+repliFix	./src/Test.hs	/^repliFix = fix (\\rec' n f -> if n == 0 then id else f . rec' (n-1) f)$/;"	fi	line:71
+replicompose	./src/Test.hs	/^replicompose 5 f = f . f . f . f . f$/;"	fi	line:49
+replicompose'	./src/Test.hs	/^replicompose' :: Int -> (a -> a) -> a -> a$/;"	ft	line:51
+replicompose'	./src/Test.hs	/^replicompose' n f = foldr (.) id (replicate n f)$/;"	fi	line:52
+reverseTaps	./src/Bleh.hs	/^reverseTaps :: Char -> DaPhone -> [(String, Integer)]$/;"	ft	line:251
+reverseTaps	./src/Bleh.hs	/^reverseTaps ch (DaPhone ((x,y):zs)) = case elemIndex ch y of$/;"	fi	line:252
+reverseTaps'	./src/Bleh.hs	/^reverseTaps' :: DaPhone -> Char -> [(String, Integer)]$/;"	ft	line:256
+reverseTaps'	./src/Bleh.hs	/^reverseTaps' = flip reverseTaps$/;"	fi	line:257
+rot	./src/Cube.hs	/^  rot :: Cube u f r b l d -> Cube u r b l f d$/;"	ft	line:27
+roundTrip	./src/Bleh.hs	/^roundTrip :: (Show a, Read b) => a -> b$/;"	ft	line:341
+roundTrip	./src/Bleh.hs	/^roundTrip = read . show$/;"	fi	line:342
+run	./src/DEO.hs	/^run :: IO ()$/;"	ft	line:42
+run	./src/DEO.hs	/^run = defaultMain$/;"	fi	line:43
+runMem	./src/Test.hs	/^newtype Mem s a = Mem {runMem :: s -> (a,s)}$/;"	c_a	line:353
+runObserve	./src/Test.hs	/^newtype Observer r a = Observer {runObserve :: r -> a}$/;"	c_a	line:347
+runParser	./src/Bleh.hs	/^newtype Parser a = Parser { runParser :: String -> Maybe (a, String) }$/;"	c_a	line:35
+satisfy	./src/Bleh.hs	/^satisfy :: (Char -> Bool) -> Parser Char$/;"	ft	line:37
+satisfy	./src/Bleh.hs	/^satisfy p = Parser f$/;"	fi	line:38
+server	./src/Bleh.hs	/^server = "irc.freenode.org"$/;"	fi	line:515
+server	./src/Test.hs	/^server = "irc.freenode.org"$/;"	fi	line:189
+someFunc	./src/Lib.hs	/^someFunc :: IO ()$/;"	ft	line:7
+someFunc	./src/Lib.hs	/^someFunc = putStrLn "someFunc"$/;"	fi	line:8
+something	./src/bloogle.hs	/^something :: IO ()$/;"	ft	line:4
+something	./src/bloogle.hs	/^something = doesnt_exist$/;"	fi	line:5
+splitAt'	./src/Bleh.hs	/^splitAt' :: [Int] -> [Char] -> [[Char]]$/;"	ft	line:294
+splitAt'	./src/Bleh.hs	/^splitAt' _ [] = []$/;"	fi	line:295
+squish	./src/Bleh.hs	/^squish :: [[a]] -> [a]$/;"	ft	line:286
+squish	./src/Bleh.hs	/^squish [] = []$/;"	fi	line:287
+squishMap	./src/Bleh.hs	/^squishMap :: (a -> [b]) -> [a] -> [b]$/;"	ft	line:290
+squishMap	./src/Bleh.hs	/^squishMap f xs = squish . map f $ xs$/;"	fi	line:291
+stars	./src/Bleh.hs	/^stars :: String -> String$/;"	ft	line:207
+stars	./src/Bleh.hs	/^stars = unwords . map$/;"	fi	line:208
+start	./src/Bleh.hs	/^start=(-1000000)$/;"	fi	line:132
+str	./src/PP.hs	/^str = "\\$/;"	fi	line:15
+stringToInteger	./src/Test.hs	/^stringToInteger :: String -> Integer$/;"	ft	line:302
+stringToInteger	./src/Test.hs	/^stringToInteger x = read x$/;"	fi	line:303
+sumDigits	./src/Test.hs	/^sumDigits :: [Integer] -> Integer$/;"	ft	line:101
+sumDigits	./src/Test.hs	/^sumDigits [] = 0$/;"	fi	line:102
+teens	./src/numtowords.hs	/^teens = ["ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"]$/;"	fi	line:11
+tens	./src/numtowords.hs	/^tens = ["twenty","thirty","fourty","fifty","sixty","seventy","eighty","ninety"]$/;"	fi	line:12
+test	./src/Feg.hs	/^test = 90 < 10 < 50$/;"	fi	line:16
+test1	./src/Cont.hs	/^test1 = runCont ex1 show$/;"	fi	line:12
+test2	./src/Cont.hs	/^test2 = runCont ex2 show$/;"	fi	line:19
+test2	./src/Feg.hs	/^test2 = 90 < 100 < 50$/;"	fi	line:17
+test3	./src/Cont.hs	/^test3 = runContT ex3 show$/;"	fi	line:26
+test3	./src/Feg.hs	/^test3 = 90 < 10 < 150$/;"	fi	line:18
+test4	./src/Cont.hs	/^test4 = runContT ex4 show$/;"	fi	line:35
+test4	./src/Feg.hs	/^test4 = 30 < 40 < 20$/;"	fi	line:19
+toDigit	./src/Finger.hs	/^toDigit :: [a] -> Digit a$/;"	ft	line:34
+toDigit	./src/Finger.hs	/^toDigit [a]       = One a$/;"	fi	line:35
+toRevDigits	./src/Test.hs	/^toRevDigits :: Integer -> [Integer]$/;"	ft	line:96
+toRevDigits	./src/Test.hs	/^toRevDigits n$/;"	fi	line:97
+toTree	./src/Finger.hs	/^toTree :: Foldable f => f a -> FingerTree a$/;"	ft	line:58
+toTree	./src/Finger.hs	/^toTree = foldr (<|) Empty$/;"	fi	line:59
+totals	./src/Bleh.hs	/^totals=[9,12,2,14]$/;"	fi	line:134
+tupleMaxMin	./src/Bleh.hs	/^tupleMaxMin :: (Ord a, Ord b) => [(a,b)] -> (a,b)$/;"	ft	line:378
+tupleMaxMin	./src/Bleh.hs	/^tupleMaxMin = bimap maximum minimum . unzip$/;"	fi	line:379
+twist	./src/Cube.hs	/^  twist :: Cube u f r b l d -> Cube f r u l d b$/;"	ft	line:28
+typeP	./src/Chess.hs	/^data Piece = Piece { typeP   :: TypePiece$/;"	c_a	line:28
+u	./src/Cube.hs	/^u = undefined$/;"	fi	line:126
+unCombine	./src/Test.hs	/^  Combine { unCombine :: (a -> b) }$/;"	c_a	line:371
+unique	./src/Test.hs	/^unique :: Integer -> Integer -> Integer$/;"	ft	line:445
+unique	./src/Test.hs	/^unique c n = c * foldl1' (\\acc x -> acc +$/;"	fi	line:446
+units	./src/numtowords.hs	/^units = ["zero","one","two","three","four", "five", "six","seven","eight","nine"]$/;"	fi	line:10
+v	./src/Bleh.hs	/^v = [(1,2),(3,4),(7,8)]$/;"	fi	line:407
+validMove	./src/Chess.hs	/^validMove :: (Board, Couleur) -> (Int,Int) -> (Int,Int) -> Bool$/;"	ft	line:119
+validMove	./src/Chess.hs	/^validMove (board, joueur) o f =    inBoard o && inBoard f$/;"	fi	line:120
+validMovePiece	./src/Chess.hs	/^validMovePiece :: Piece -> (Int,Int) -> (Int,Int) -> Bool$/;"	ft	line:99
+validMovePiece	./src/Chess.hs	/^validMovePiece p (w,x) (y,z) = let$/;"	fi	line:100
+validPrisePiece	./src/Chess.hs	/^validPrisePiece :: Piece -> (Int,Int) -> (Int,Int) -> Bool$/;"	ft	line:111
+validPrisePiece	./src/Chess.hs	/^validPrisePiece p (w,x) (y,z) = let$/;"	fi	line:112
+x	./src/Cube.hs	/^data x ::: xs$/;"	d	line:54
+x	./src/Cube.hs	/^data x :|: xs$/;"	d	line:57
+zerp	./src/Bleh.hs	/^zerp :: (a -> Bool) -> [a] -> [b] -> [(a,b)]$/;"	ft	line:196
+zerp	./src/Bleh.hs	/^zerp _ _ [] = []$/;"	fi	line:197
+zipStep	./src/Bleh.hs	/^zipStep :: forall a b . (a -> Bool) -> [a] -> [b] -> [(a,b)]$/;"	ft	line:333
+zipStep	./src/Bleh.hs	/^zipStep f xs as@(y:ys) = zipWith (go y) xs as$/;"	fi	line:334
+zipWith'	./src/Bleh.hs	/^zipWith' :: (a->b->c) -> [a]->[b]->[c]$/;"	ft	line:478
+zipWith'	./src/Bleh.hs	/^zipWith' _f []     _bs    = []$/;"	fi	line:479
+|>	./src/Finger.hs	/^(|>) :: FingerTree a -> a -> FingerTree a$/;"	ft	line:50

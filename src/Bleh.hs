@@ -1,4 +1,6 @@
 {-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE ExistentialQuantification #-}
+
 -- {-# LANGUAGE RankNTypes #-}
 -- {-# OPTIONS_GHC -fdefer-typed-holes #-}
 {-# OPTIONS_GHC -Wall #-}
@@ -7,11 +9,12 @@
 
 module Bleh where
 
+import Data.Functor.Contravariant (Contravariant (..))
+
 import qualified Data.ByteString.Lazy.Char8 as BL
 import Data.Int
 import Data.List
 
-import Data.Char
 import Data.Tuple.Extra
 import Data.Function
 import Data.Bifunctor
@@ -21,10 +24,126 @@ import Codec.Picture
 import Data.Maybe
 import Data.Bool
 
+import qualified Text.Parsec as P
+
 import Control.Concurrent
 
 import Network
 import System.IO
+
+import           Control.Applicative
+import           Data.Char
+
+newtype Parser a = Parser { runParser :: String -> Maybe (a, String) }
+
+satisfy :: (Char -> Bool) -> Parser Char
+satisfy p = Parser f
+  where
+    f [] = Nothing
+    f (x:xs)
+        | p x       = Just (x, xs)
+        | otherwise = Nothing
+
+char :: Char -> Parser Char
+char c = satisfy (== c)
+
+data Person = Person { name :: String }
+
+greet person otherName =
+    "Hi" ++ otherName ++ ", my name is " ++ name person
+
+bauble :: [Integer] -> Integer -> Bool
+bauble xs x = any ((==0) . ($ x)) (fmap (flip mod) xs)
+
+bauble' :: [Integer] -> Integer -> Bool
+bauble' xs x = any ((==0) . uncurry mod) $ zip (repeat x) xs
+
+
+
+
+
+data Product e a = Product e a
+class Functor w => Comonad w where
+  extract :: w a -> a
+  extend :: (w a -> b) -> w a -> w b
+  extend f = fmap f . duplicate
+  duplicate :: w a -> w (w a)
+  duplicate = extend id
+
+instance Functor (Product e) where
+  fmap f (Product e a) = Product e (f a)
+
+instance Comonad (Product e) where
+  extract (Product e a) = a
+  --extend
+  -- duplicate
+
+
+
+data Swayal a = forall b c d . Swayali (d -> a (b (a (b (a c)))))
+
+multiEqual' :: (Eq a) => [a] -> [a] -> Bool
+multiEqual' [] [] = True
+multiEqual' (_:_) [] = False
+multiEqual' [] (_:_) = False
+multiEqual' (x:xs) (y:ys)
+    | elem x (y:ys) && elem y (x:xs) = multiEqual' xs ys
+    | otherwise = False
+
+-- make a list, wrong fails for [1,2,2] [1,2,2]
+multiEqual xs ys = xs == [x | x <- xs, y <- ys, x==y]
+
+-- fine
+multiEqual xs ys = xs \\ ys == ys \\ xs
+
+posInt :: Parser Integer
+posInt = Parser f
+  where
+    f xs
+      | null ns   = Nothing
+      | otherwise = Just (read ns, rest)
+      where (ns, rest) = span isDigit xs
+
+inParser f = Parser . f . runParser
+
+first :: (a -> b) -> (a,c) -> (b,c)
+first f (x,y) = (f x, y)
+
+quicksort [] = []
+quicksort l@(x:xs) =
+    let smallerSorted = quicksort [a | a <- xs, a <= x]
+        biggerSorted = quicksort [a | a <- xs, a > x]
+    in  smallerSorted ++ [x] ++ biggerSorted
+
+instance Functor Parser where
+  --fmap f (Parser p) = Parser $ \s -> Bleh.first f <$> p s
+  fmap f = Parser . fmap (Bleh.first f <$>) . runParser
+
+eitherMaybe' :: (b -> c) -> Either a b -> Maybe c
+eitherMaybe' f l =
+  case l of
+    Left _ -> Nothing
+    Right r -> Just (f r )
+
+either' :: (a -> c) -> (b -> c) -> Either a b -> c
+either' f g e =
+  case e of
+    Left l -> f l
+    Right r -> g r
+
+eitherMaybe'' :: (b -> c) -> Either a b -> Maybe c
+eitherMaybe'' f = either (const Nothing) (Just . f)
+
+instance Applicative Parser where
+  pure a = Parser (\s -> Just (a, s))
+  (Parser fp) <*> xp = Parser $ \s ->
+    case fp s of
+      Nothing     -> Nothing
+      Just (f,s') -> runParser (f <$> xp) s'
+
+instance Alternative Parser where
+  empty = Parser (const Nothing)
+  Parser p1 <|> Parser p2 = Parser $ liftA2 (<|>) p1 p2
 
 -- data Bore a = Bored a deriving
 
@@ -35,6 +154,61 @@ fadsa = maximumBy (compare`on`fst)
 
 data AlgebraEnum = One | Two | Three | Four | Five deriving Data
 
+{--
+  a-b=9
+  a+c=12
+  b+d=2
+  c-d=14
+
+  Solve for a,b,c,d
+--}
+
+start=(-1000000)
+limit=1000000
+totals=[9,12,2,14]
+
+getB :: Integer->Integer
+getB a = (totals!!0)+a
+
+getC :: Integer -> Integer
+getC a = (totals!!1)-a
+
+getD :: Integer -> Integer
+getD a=(totals!!2)-(getB a)
+
+functions = [(\a->a),getB,getC,getD]
+
+getValues :: Integer->[Integer]
+getValues a = zipWith (\a func -> func a) (replicate 4 a) functions
+
+checkFirst :: [Integer]->Bool
+checkFirst (a:b:_)=(a-b==(totals!!0))
+
+checkSecond :: [Integer]->Bool
+checkSecond (a:_:c:_) = (a+c==(totals!!1))
+
+checkThird :: [Integer]->Bool
+checkThird (_:b:_:d:_) = (b+d==(totals!!2))
+
+checkFourth :: [Integer]->Bool
+checkFourth (_:_:c:d:_) = (c-d==(totals!!3))
+
+checkValues :: [Integer]->Bool
+checkValues values = let func = [checkFirst,checkSecond,checkThird,checkFourth] in foldl (\acc x -> acc && (x values)) True func
+
+checkValues' :: [Integer] -> Bool
+checkValues' values = all ($ values) [checkFirst,checkSecond,checkThird,checkFourth]
+
+check :: Integer -> Maybe [Integer]
+check n
+  | (checkValues list) = Just list
+  | (n > limit) = Nothing
+  | otherwise = check (n+1)
+  where list = getValues n
+
+main' = print $ show $ check start
+
+
 -- lengthAE :: forall a . a -> Int
 --lengthAE x = length . dataTypeConstrs . dataTypeOf $ (undefined :: a)
 
@@ -44,6 +218,14 @@ instance Num Test where
     (+) x y = x + y
 
 data Muffin
+
+data Nat = Zero
+         | Succ Nat
+         deriving (Eq, Show)
+
+natToInteger :: Nat -> Integer
+natToInteger Zero = 0
+natToInteger (Succ x)  = succ (natToInteger x)
 
 zerp :: (a -> Bool) -> [a] -> [b] -> [(a,b)]
 zerp _ _ [] = []
@@ -106,22 +288,19 @@ reverseTaps ch (DaPhone ((x,y):zs)) = case elemIndex ch y of
                                        Nothing  -> reverseTaps ch (DaPhone zs)
 
 reverseTaps' :: DaPhone -> Char -> [(String, Integer)]
-reverseTaps' (DaPhone ((x,y):zs)) ch = case elemIndex ch y of
-                                       Just pos -> [(x, fromIntegral pos + 1)]
-                                       Nothing  -> reverseTaps ch (DaPhone zs)
+reverseTaps' = flip reverseTaps
 
 convertSentence :: String -> DaPhone -> [(String, Integer)]
 convertSentence []  list = []
 convertSentence (x:xs) list  = if isDigit x || isLower x  || x == ' '|| x == ',' || x == '.' then reverseTaps x list ++ convertSentence xs list else ("*", 1)  : reverseTaps (toLower x) list ++ convertSentence xs list
-
 
 convertSentence' :: DaPhone -> String -> [(String, Integer)]
 convertSentence' d = concatMap (\x ->
   if isUpper x then ("*", 1)  : reverseTaps (toLower x) d else reverseTaps x d)
 
 -- this is pushing it a bit
-convertSentence'' :: DaPhone -> String -> [(String, Integer)]
-convertSentence'' d = concatMap $ bool id (("*", 1) :) . isUpper <*> reverseTaps' d
+convertSen' :: DaPhone -> String -> [(String, Integer)]
+convertSen' d = concatMap $ bool id (("*", 1) :) . isUpper <*> reverseTaps' d
 
 -- this is pushing it way too much
 -- the list monad concats for us you see, clever , but opaque as fuck
@@ -137,6 +316,23 @@ convertCo (x:xs) list = convertSentence x list ++ convertCo xs list
 
 -- unscanl :: (a -> b -> b) -> [a] -> [b]
 -- unscanl f = unfoldr f
+
+
+
+-- show
+newtype Predicate a = Predicate { getPredicate :: a -> Bool }
+
+instance Contravariant Predicate where
+    contramap g (Predicate p) = Predicate (p . g)
+
+veryOdd :: Predicate Integer
+veryOdd = contramap (`div` 2) (Predicate odd)
+
+contest :: IO ()
+contest = print $ getPredicate veryOdd <$> [0 .. 11]
+-- /show
+
+
 
 squish :: [[a]] -> [a]
 squish [] = []
@@ -171,7 +367,6 @@ capitalizeWord w@(x:xs) = (w, toUpper x : map toLower xs)
 
 capitalizeWords :: String -> [(String, String)]
 capitalizeWords w = map capitalizeWord (words w)
-
 
 --
 -- break                   :: (a -> Bool) -> [a] -> ([a],[a])
