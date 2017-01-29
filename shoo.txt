@@ -1,0 +1,73 @@
+unsafe fn win32_initDSound(window: HWND, samplesPerSecond: u32, bufferSize: i32) {
+    // These strings have to be seperately bound, or their pointers will dangle.
+    // TODO: Consider making this a 'static value of the program.
+    let libraryName = "dsound.dll".to_wide_null();
+    let directSoundCreateName = CString::new("DirectSoundCreate").unwrap();
+
+    let dSoundLibrary = LoadLibraryW(libraryName.as_ptr());
+    if !dSoundLibrary.is_null() {
+        let dsCreateVoidPtr = GetProcAddress(dSoundLibrary, directSoundCreateName.as_ptr());
+        if !dsCreateVoidPtr.is_null() {
+            let directSoundCreate = transmute::<*const std::os::raw::c_void,
+                                                unsafe extern "system" fn(LPGUID, *mut LPDIRECTSOUND, LPUNKNOWN)
+                                                                          -> HRESULT>(dsCreateVoidPtr);
+            let mut directSound = null_mut();
+            if SUCCEEDED(directSoundCreate(null_mut(), &mut directSound, null_mut())) {
+                if SUCCEEDED((*directSound).SetCooperativeLevel(window, DSSCL_PRIORITY)) {
+                    let bufferDescription = DSBUFFERDESC {
+                        dwSize: size_of::<DSBUFFERDESC>() as u32,
+                        dwFlags: DSBCAPS_PRIMARYBUFFER,
+                        dwBufferBytes: 0,
+                        dwReserved: 0,
+                        lpwfxFormat: null_mut(),
+                        guid3DAlgorithm: GUID {
+                            Data1: 0,
+                            Data2: 0,
+                            Data3: 0,
+                            Data4: [0; 8],
+                        },
+                    };
+                    let mut primaryBuffer = null_mut();
+                    if SUCCEEDED((*directSound).CreateSoundBuffer(&bufferDescription, &mut primaryBuffer, null_mut())) {
+                        let channels = 2;
+                        let bitsPerSample = 16;
+                        let alignment: u32 = (channels * bitsPerSample) / 8;
+                        let waveFormat = WAVEFORMATEX {
+                            wFormatTag: WAVE_FORMAT_PCM,
+                            nChannels: channels as u16,
+                            nSamplesPerSec: samplesPerSecond,
+                            nAvgBytesPerSec: samplesPerSecond * alignment,
+                            nBlockAlign: alignment as u16,
+                            wBitsPerSample: bitsPerSample as u16,
+                            cbSize: 0,
+                        };
+                        match (*primaryBuffer).SetFormat(&waveFormat) {
+                            DS_OK => {
+                                println!("Primary buffer format was set.");
+                            }
+                            // winapi::dsound does not currently define all
+                            // error codes, so we will just print the value in
+                            // an easy to look up format.
+                            unknown => {
+                                // https://msdn.microsoft.com/en-us/library/windows/desktop/ee416776(v=vs.85).aspx
+                                println!("win32_initDSound: couldn't set sound format: unknown error {:#x}",
+                                         unknown as u32);
+                                println!("format was: {:?}", waveFormat);
+                            }
+                        }
+                    } else {
+                        println!("win32_initDSound: Could not create a sound buffer.");
+                    }
+                } else {
+                    println!("win32_initDSound: Could not set sound priority.");
+                }
+            } else {
+                println!("win32_initDSound: Could not create a DirectSound object.");
+            }
+        } else {
+            println!("win32_initDSound: could not load function from the DLL.");
+        }
+    } else {
+        println!("win32_initDSound: failed to load the DLL.");
+    }
+}

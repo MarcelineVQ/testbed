@@ -1,5 +1,6 @@
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE ExistentialQuantification #-}
+{-# LANGUAGE TemplateHaskell #-}
 
 -- {-# LANGUAGE RankNTypes #-}
 -- {-# OPTIONS_GHC -fdefer-typed-holes #-}
@@ -20,7 +21,6 @@ import Data.Function
 import Data.Bifunctor
 import Graphics.Gloss
 import Data.Data
-import Codec.Picture
 import Data.Maybe
 import Data.Bool
 
@@ -31,8 +31,14 @@ import Control.Concurrent
 import Network
 import System.IO
 
+import Test.QuickCheck
+import Test.QuickCheck.Checkers
+
 import           Control.Applicative
 import           Data.Char
+
+import Language.Haskell.TH
+
 
 newtype Parser a = Parser { runParser :: String -> Maybe (a, String) }
 
@@ -77,7 +83,6 @@ instance Comonad (Product e) where
   extract (Product e a) = a
   --extend
   -- duplicate
-
 
 
 data Swayal a = forall b c d . Swayali (d -> a (b (a (b (a c)))))
@@ -211,11 +216,6 @@ main' = print $ show $ check start
 
 -- lengthAE :: forall a . a -> Int
 --lengthAE x = length . dataTypeConstrs . dataTypeOf $ (undefined :: a)
-
-data Test = Test Int deriving (Show)
-
-instance Num Test where
-    (+) x y = x + y
 
 data Muffin
 

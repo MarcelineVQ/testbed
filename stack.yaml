@@ -1,6 +1,12 @@
 flags: {}
 extra-package-dbs: []
 packages:
-- '.'
-extra-deps: []
-resolver: lts-7.0
+- location: '.'
+- location: ../weigh/
+  extra-dep: true
+extra-deps:
+- csv-conduit-0.6.7
+- dates-0.2.2.1
+- multirec-0.7.7
+- weigh-0.0.4
+resolver: lts-7.15

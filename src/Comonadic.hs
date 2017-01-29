@@ -1,3 +1,5 @@
+-- {-# LANGUAGE ScopedTypeVariables #-}
+
 module Comonadic where
 
 -- import Data.Functor.Fixedpoint
@@ -26,9 +28,6 @@ data Feh f g = Feh f
 
 instance Functor (Swayal f g) where
   fmap f (Swayali g) = undefined
-
-
-
 
 
   --extend
