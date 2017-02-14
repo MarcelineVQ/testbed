@@ -15,29 +15,40 @@ cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src
-  other-modules:       Feg
-                     , Do
-                     , Finger
-                     , Bleh
-                     , Datakind
-                     , Chess
-                     , DEO
-                     , Cont
-                     , Comonadic
-                     , Compose, ComposeTH
-                     , Neh
-                     , TriangleGame
-                     , C, D
-                     , Mono, MonoTH
-                     , What
-                     , RankLang
-                     , Bloo
-                     , Cookie
+  other-modules:       Bed.Feg
+                     , Bed.Do
+                     , Bed.Finger
+                     , Bed.Bleh
+                     , Bed.Datakind
+                     , Bed.Chess
+                     , Bed.DEO
+                     , Bed.Cont
+                     , Bed.Comonadic
+                     , Bed.Neh
+                     , Bed.TriangleGame
+                     , Bed.What
+                     , Bed.RankLang
+                     , Bed.Bloo
+                     , Bed.Cookie
+
+                     , Bed.Core.Core
+
+                     , Bed.CD.C
+                     , Bed.CD.D
+
+                     , Bed.Compose.Compose
+                     , Bed.Compose.ComposeTH
+
+                     , Bed.Mono.Mono
+                     , Bed.Mono.MonoTH
+
   exposed-modules:     Lib
   build-depends:       base >= 4.7 && < 5
                      , bytestring
                      , bifunctors
                      , hedis
+                     , ghc
+                     , ghc-paths
                      , network-uri
                      , scotty
                      , parallel
@@ -47,6 +58,8 @@ library
                      , matrices
                      , filepath
                      , extra
+                     , yesod
+                     , yesod-form
                      , constraints
                      , gloss
                      , split

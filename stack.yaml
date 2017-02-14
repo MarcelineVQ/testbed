@@ -9,4 +9,4 @@ extra-deps:
 - dates-0.2.2.1
 - multirec-0.7.7
 - weigh-0.0.4
-resolver: lts-7.15
+resolver: lts-7.18

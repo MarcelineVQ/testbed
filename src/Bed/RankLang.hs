@@ -1,0 +1,101 @@
+{-# LANGUAGE TupleSections #-}
+
+module Bed.RankLang where
+--
+-- --import Data.Char
+-- import Text.Megaparsec
+-- import qualified Text.Megaparsec.Lexer as L
+-- import Text.Megaparsec.String
+--
+-- type Width = Int
+-- type Height = Int
+-- type Line = String
+-- data Grid = Grid Height Width [Line] deriving (Eq, Ord)
+--
+-- instance Show Grid where
+--   show (Grid h w l) = unlines $ unwords [show w,show h] : l
+--
+--
+-- num :: Parser Int
+-- num = fromInteger <$> L.integer
+--
+-- getGridLines = case parse parseGrid "" sample1 of
+--   Left e -> error (parseErrorPretty e)
+--   Right (Grid h w l) -> l
+--
+-- parseGrids :: Parser (Int, [Grid])
+-- parseGrids = do
+--   c <- num <* space
+--   (c,) <$> count c parseGrid
+--
+--
+-- parseGrid :: Parser Grid
+-- parseGrid = do
+--   h <- num <* space
+--   w <- num <* space
+--
+--   l <- count h (gridLine w <* many separatorChar)
+--
+--   return $ Grid h w l
+--
+-- gridLine :: Int -> Parser String
+-- gridLine n = count n (letterChar <* many separatorChar) <* eol
+--
+-- -- Sample Input
+-- sample = "2\n" ++ sample1 ++ sample2
+-- sample1 = "4 8\nttuuttdd\nttuuttdd\nuuttuudd\nuuttuudd\n"
+-- sample2 = "9 9\nbbbbbbbbb\naaaaaaaab\nbbbbbbbab\nbaaaaacab\nbacccccab\nbacbbbcab\nbacccccab\nbaaaaaaab\nbbbbbbbbb\n"
+
+
+-- You might have noticed that English and Spanish are spoken in many areas all over the world. Now it
+-- would be nice to rank all languages according to the number of states where they are spoken.
+-- You’re given a map which shows the states and the languages where they are spoken. Look at the
+-- following map:
+-- ttuuttdd
+-- ttuuttdd
+-- uuttuudd
+-- uuttuudd
+-- The map is read like this: Every letter stands for a language and states are defined as connected
+-- areas with the same letter. Two letters are “connected” if one is at left, at right, above or below the
+-- other one. So in the above map, there are three states where the language “t” is spoken, three where
+-- “u” is spoken and one state where people speak “d”.
+-- Your job is to determine the number of states for each language and print the results in a certain
+-- order.
+-- Input
+-- The first line contains the number of test cases N. Each test case consists of a line with two numbers
+-- H and W, which are the height and the width of the map. Then follow H lines with a string of W
+-- letters. Those letters will only be lowercase letters from ‘a’ to ‘z’.
+-- Output
+-- For each test case print ‘World #n’, where n is the number of the test case. After that print a line
+-- for each language that appears in the test case, which contains the language, a colon, a space and
+-- the number of states, where that language is spoken. These lines have to be ordered decreasingly by
+-- the number of states. If two languages are spoken in the same number of states, they have to appear
+-- alphabetically, which means language ‘i’ comes before language ‘q’, for example.
+--
+-- Sample Input
+-- 2
+-- 4 8
+-- ttuuttdd
+-- ttuuttdd
+-- uuttuudd
+-- uuttuudd
+-- 9 9
+-- bbbbbbbbb
+-- aaaaaaaab
+-- bbbbbbbab
+-- baaaaacab
+-- bacccccab
+-- bacbbbcab
+-- bacccccab
+-- baaaaaaab
+-- bbbbbbbbb
+--
+-- Sample Output
+-- World #1
+-- t: 3
+-- u: 3
+-- d: 1
+-- World #2
+-- b: 2
+-- a: 1
+-- c: 1
